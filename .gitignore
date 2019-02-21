@@ -245,5 +245,5 @@ ModelManifest.xml
 .fake/
 
 # own stuff
-x86/
 out/
+!SDL2Droid-CS/libs/*
