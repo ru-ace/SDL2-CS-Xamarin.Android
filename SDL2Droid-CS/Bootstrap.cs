@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +16,8 @@ using System.Runtime.InteropServices;
 using Android.Content.Res;
 using Android.Util;
 
-namespace SDL2Droid_CS {
+namespace SDL2Droid_CS
+{
     delegate void Main();
 
     // Delegates for the example code
@@ -28,9 +29,11 @@ namespace SDL2Droid_CS {
     );
     delegate void DglClear(int mask);
 
-    static class Bootstrap {
+    static class Bootstrap
+    {
 
-        public static void SDL_Main() {
+        public static void SDL_Main()
+        {
             // Example code.
 
             // OPTIONAL: Hide action bar (top bar). Otherwise it just shows the window title.
@@ -39,12 +42,15 @@ namespace SDL2Droid_CS {
             // OPTIONAL: Fullscreen (immersive), handled by the activity
             MainActivity.SDL2DCS_Fullscreen = true;
 
-            SDL.SDL_Init(
-                SDL.SDL_INIT_VIDEO |
-                SDL.SDL_INIT_JOYSTICK |
-                SDL.SDL_INIT_GAMECONTROLLER |
-                SDL.SDL_INIT_HAPTIC
-            );
+            if (SDL.SDL_Init(SDL.SDL_INIT_EVERYTHING) < 0)
+            {
+                Console.WriteLine("SDL could not initialize! SDL_Error: {0}", SDL.SDL_GetError());
+
+            }
+            else
+            {
+                Console.WriteLine("SDL initialized!");
+            }
 
             // OPTIONAL: Get WM. Required to set the backbuffer size to the screen size
             DisplayMetrics dm = new DisplayMetrics();
@@ -60,6 +66,22 @@ namespace SDL2Droid_CS {
                 SDL.SDL_WindowFlags.SDL_WINDOW_INPUT_FOCUS |
                 SDL.SDL_WindowFlags.SDL_WINDOW_MOUSE_FOCUS
             );
+            if (window == IntPtr.Zero)
+            {
+                Console.WriteLine("Window could not be created! SDL_Error: {0}", SDL.SDL_GetError());
+            }
+            else
+            {
+                Console.WriteLine("Window created!");
+            }
+
+            IntPtr surface = SDL.SDL_GetWindowSurface(window);
+
+            //Update the surface
+            SDL.SDL_UpdateWindowSurface(window);
+
+            //Wait two seconds
+            //SDL.SDL_Delay(5000);
 
             SDL.SDL_GL_SetAttribute(SDL.SDL_GLattr.SDL_GL_SHARE_WITH_CURRENT_CONTEXT, 1);
 
@@ -68,11 +90,11 @@ namespace SDL2Droid_CS {
 
             SDL.SDL_DisableScreenSaver();
 
-            DglClearColor glClearColor = (DglClearColor) Marshal.GetDelegateForFunctionPointer(
+            DglClearColor glClearColor = (DglClearColor)Marshal.GetDelegateForFunctionPointer(
                 SDL.SDL_GL_GetProcAddress("glClearColor"),
                 typeof(DglClearColor)
             );
-            DglClear glClear = (DglClear) Marshal.GetDelegateForFunctionPointer(
+            DglClear glClear = (DglClear)Marshal.GetDelegateForFunctionPointer(
                 SDL.SDL_GL_GetProcAddress("glClear"),
                 typeof(DglClear)
             );
@@ -82,17 +104,21 @@ namespace SDL2Droid_CS {
             SDL.SDL_Event evt;
             DateTime now;
             TimeSpan span;
-            while (true) {
-                while (SDL.SDL_PollEvent(out evt) == 1) {
-                    if (evt.type == SDL.SDL_EventType.SDL_QUIT) {
-                        goto QUIT;
-                    }
+
+            bool exit = false;
+            while (!exit)
+            {
+                while (SDL.SDL_PollEvent(out evt) == 1)
+                {
+                    if (evt.type == SDL.SDL_EventType.SDL_QUIT)
+                        exit = true;
+
                 }
 
                 now = DateTime.UtcNow;
                 span = now - start;
 
-                float t = (float) (Math.Sin(span.TotalSeconds) * 0.5 + 0.5);
+                float t = (float)(Math.Sin(span.TotalSeconds) * 0.5 + 0.5);
 
                 glClearColor(t, t, t, 1f);
                 glClear(0x4000); // GL_COLOR_BUFFER_BIT
@@ -100,15 +126,14 @@ namespace SDL2Droid_CS {
                 SDL.SDL_GL_SwapWindow(window);
             }
 
-            QUIT:
             SDL.SDL_Quit();
 
         }
 
-        public static void SetupMain() {
+        public static void SetupMain()
+        {
             // Give the main library something to call in Mono-Land afterwards
             SetMain(SDL_Main);
-
             // Insert your own post-lib-load, pre-SDL2 code here.
         }
 
