@@ -6,20 +6,17 @@
     * SDL2_image 2.0.4
     * SDL2_mixer 2.0.4
     * SDL2_ttf 2.0.15
-    * `libmain.so` - currently from (https://github.com/MananAdhvaryu/Android-SDL2-Libraries) my version doesn't contain SetMain() - will examine this in near future.
-    * Instruction for creating bundle: https://wiki.libsdl.org/Android (section 4.1)  
+    * Instruction for creating bundle: https://wiki.libsdl.org/Android (section 4.1). Dont forget add SDL2Droid-CS-Native/wrapper/* to SDL2/build/org.libsdl/app/jni/src/* and fix path in Android.mk  
 * Precompiled SDL2Droid-CS-Java.jar (src from SDL2 2.0.8)
-* Minimum Api Level 19
+* Api Level 19
 
 ## Todo
 
 * Finish test code for SDL2_* libs
-* Compile `libmain.so` by myself 
 
 ## Credits
 
 * Original repo. Really great work! - https://github.com/0x0ade/SDL2Droid-CS 
-* `libmain.so` - https://github.com/MananAdhvaryu/Android-SDL2-Libraries 
 * Test code examples - https://github.com/expert4pro/SharpSdl2Examples   
 
 # SDL2Droid-CS
