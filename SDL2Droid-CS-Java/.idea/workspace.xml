@@ -7,9 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="22061be4-60d7-4c3d-98b1-f99f118f5894" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/org/libsdl/app/SDLActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/org/libsdl/app/SDLActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SDL2Droid-CS/Properties/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SDL2Droid-CS/Properties/AndroidManifest.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../deps/SDL" beforeDir="false" afterPath="$PROJECT_DIR$/../deps/SDL" afterDir="false" />
     </list>
     <ignored path="SDL2Droid-CS-Java.iws" />
@@ -27,6 +25,7 @@
     <session id="903848886">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
