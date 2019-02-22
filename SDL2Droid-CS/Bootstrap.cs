@@ -90,7 +90,7 @@ namespace SDL2Droid_CS
             TestCode tc = new TestCode(window, dm.WidthPixels, dm.HeightPixels);
 
             //selector
-            const bool gl_test = true;
+            const bool gl_test = false;
 
             if (gl_test)
             {

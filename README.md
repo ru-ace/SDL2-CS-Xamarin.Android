@@ -9,10 +9,10 @@
     * Instruction for creating bundle: https://wiki.libsdl.org/Android (section 4.1). Dont forget add SDL2Droid-CS-Native/wrapper/* to SDL2/build/org.libsdl/app/jni/src/* and fix path in Android.mk  
 * Precompiled SDL2Droid-CS-Java.jar (src from SDL2 2.0.8)
 * Api Level 19
+* Simple test code for SDL2_* libs.
 
-## Todo
-
-* Finish test code for SDL2_* libs
+Please keep in mind that this repo contains *proof of concept* with very dirty code and **without any support**. 
+I used it to understand: in future i will be able to port my project with SDL2_* libs to android.
 
 ## Credits
 

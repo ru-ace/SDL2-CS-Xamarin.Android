@@ -5,7 +5,7 @@ using System.Text;
 
 using Android.App;
 using Android.Content;
-using Android.OS;
+//using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
@@ -117,21 +117,61 @@ namespace SDL2Droid_CS
 
             SDL.SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0xFF, 0xFF);
 
-            Console.WriteLine("Base Path: {0}", SDL.SDL_GetBasePath());
-            Console.WriteLine("ApplicationData Path: {0}", System.Environment.GetFolderPath(System.Environment.SpecialFolder.ApplicationData));
 
-            //LoadResources();
+            LoadAndPrepareResources();
         }
 
-        private void LoadResources()
+        private IntPtr music_mp3;
+        private IntPtr music_wav;
+        private IntPtr font;
+        private IntPtr texture_png;
+        private SDL.SDL_Surface s_png;
+        private IntPtr texture_text;
+        private SDL.SDL_Surface s_text;
+
+        private void LoadAndPrepareResources()
         {
 
 
-            //Load music
-            //string filename = Path.Combine(Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryPictures), "beat.wav");
-            IntPtr music = SDL_mixer.Mix_LoadMUS("file://android_asset/beat.wav");
-            if (music == IntPtr.Zero)
-                Console.WriteLine("Failed to load! {0}", SDL.SDL_GetError());
+            music_mp3 = SDL_mixer.Mix_LoadMUS("ringtone.mp3");
+            if (music_mp3 == IntPtr.Zero)
+                Console.WriteLine("Failed to load mp3! SDL_mixer error {0}", SDL.SDL_GetError());
+
+            SDL_mixer.Mix_PlayMusic(music_mp3, -1);
+
+            music_wav = SDL_mixer.Mix_LoadWAV("beat.wav");
+            if (music_wav == IntPtr.Zero)
+                Console.WriteLine("Failed to load wav! SDL_mixer error {0}", SDL.SDL_GetError());
+
+            font = SDL_ttf.TTF_OpenFont("lazy.ttf", 64);
+            if (font == IntPtr.Zero)
+                Console.WriteLine("Failed to load lazy font! SDL_ttf Error: {0}", SDL.SDL_GetError());
+
+            //Render text surface
+            var textColor = new SDL.SDL_Color();
+            var textSurface = SDL_ttf.TTF_RenderText_Solid(font, "Hello SDL2 World!", textColor);
+            if (textSurface == IntPtr.Zero)
+                Console.WriteLine("Unable to render text surface! SDL_ttf Error: {0}", SDL.SDL_GetError());
+
+            texture_text = SDL.SDL_CreateTextureFromSurface(renderer, textSurface);
+            if (texture_text == IntPtr.Zero)
+                Console.WriteLine("Unable to create texture from rendered text! SDL Error: {0}", SDL.SDL_GetError());
+            s_text = Marshal.PtrToStructure<SDL.SDL_Surface>(textSurface);
+
+            IntPtr image_png = SDL_image.IMG_Load("transparent.png");
+            if (image_png == IntPtr.Zero)
+                Console.WriteLine("Unable to load image! SDL_image Error: {0}", SDL.SDL_GetError());
+
+            s_png = Marshal.PtrToStructure<SDL.SDL_Surface>(image_png);
+            SDL.SDL_SetColorKey(image_png, (int)SDL.SDL_bool.SDL_TRUE, SDL.SDL_MapRGB(s_png.format, 0, 0xFF, 0xFF));
+
+            texture_png = SDL.SDL_CreateTextureFromSurface(renderer, image_png);
+            if (texture_png == IntPtr.Zero)
+                Console.WriteLine("Unable to create texture from png! SDL Error: {0}", SDL.SDL_GetError());
+
+
+
+
 
 
         }
@@ -139,7 +179,7 @@ namespace SDL2Droid_CS
         {
             bool exit = false;
             SDL.SDL_Event e;
-
+            double angle = 0;
             while (!exit)
             {
                 while (SDL.SDL_PollEvent(out e) == 1)
@@ -155,29 +195,40 @@ namespace SDL2Droid_CS
 
 
                 //Render red filled quad
-                var fillRect = new SDL.SDL_Rect { x = window_height / 4, y = window_height / 4, w = window_height / 2, h = window_height / 2 };
-                SDL.SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0x00, 0xFF);
+                var fillRect = new SDL.SDL_Rect { x = window_width / 4, y = window_height / 4, w = window_width / 2, h = window_height / 2 };
+                SDL.SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0x00, 0xFF);
                 SDL.SDL_RenderFillRect(renderer, ref fillRect);
 
                 //Render green outlined quad
-                var outlineRect = new SDL.SDL_Rect { x = window_height / 6, y = window_height / 6, w = window_height * 2 / 3, h = window_height * 2 / 3 };
-                SDL.SDL_SetRenderDrawColor(renderer, 0x00, 0xFF, 0x00, 0xFF);
+                var outlineRect = new SDL.SDL_Rect { x = window_width / 6, y = window_height / 6, w = window_width * 2 / 3, h = window_height * 2 / 3 };
+                SDL.SDL_SetRenderDrawColor(renderer, 0xFF, 0x00, 0x00, 0xFF);
                 SDL.SDL_RenderDrawRect(renderer, ref outlineRect);
 
                 //Draw blue horizontal line
                 SDL.SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0xFF, 0xFF);
-                SDL.SDL_RenderDrawLine(renderer, 0, window_height / 2, window_height, window_height / 2);
+                SDL.SDL_RenderDrawLine(renderer, 0, window_height / 2, window_width, window_height / 2);
 
-                //Draw vertical line of yellow dots
-                SDL.SDL_SetRenderDrawColor(renderer, 0xFF, 0xFF, 0x00, 0xFF);
+                //Draw vertical line of black dots
+                SDL.SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0xFF);
                 for (int i = 0; i < window_height; i += 4)
-                {
-                    SDL.SDL_RenderDrawPoint(renderer, window_height / 2, i);
-                }
+                    SDL.SDL_RenderDrawPoint(renderer, window_width / 2, i);
+
+                //var center = new SDL.SDL_Point { x = window_width / 2, y = window_height / 2 };
+
+
+                //Render text
+                var dst_rect = new SDL.SDL_Rect { x = window_width / 2 - s_text.w / 2, y = window_height / 2 - s_text.h / 2, w = s_text.w, h = s_text.h };
+                SDL.SDL_RenderCopyEx(renderer, texture_text, IntPtr.Zero, ref dst_rect, angle, IntPtr.Zero, SDL.SDL_RendererFlip.SDL_FLIP_NONE);
+
+                //Render png
+                dst_rect = new SDL.SDL_Rect { x = window_width / 2 - s_png.w / 2, y = window_height / 6 - s_png.h / 2, w = s_png.w, h = s_png.h };
+                SDL.SDL_RenderCopyEx(renderer, texture_png, IntPtr.Zero, ref dst_rect, 0, IntPtr.Zero, SDL.SDL_RendererFlip.SDL_FLIP_NONE);
 
                 //Update screen
                 SDL.SDL_RenderPresent(renderer);
                 SDL.SDL_Delay(50);
+                angle++;
+                angle = angle > 360 ? 0 : angle;
             }
         }
 
