@@ -1,7 +1,7 @@
 # Difference from origin repo 
 
-* Updated to SDL2 2.0.8 and works at this moment
-* Contains precompiled bundle of shared SDL2 libs for arm64-v8a, armeabi-v7a, x86, x86_64:
+* Updated to SDL2 2.0.8 and contains all needed precompiled files 
+* Precompiled bundle of shared SDL2 libs for arm64-v8a, armeabi-v7a, x86, x86_64:
     * SDL2 2.0.8 - cause it needs API Level 19 (2.0.9 wants >=26)
     * SDL2_image 2.0.4
     * SDL2_mixer 2.0.4
