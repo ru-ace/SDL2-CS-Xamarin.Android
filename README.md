@@ -1,13 +1,13 @@
 # Difference from origin repo 
 
 * Updated to SDL2 2.0.8 and contains all needed precompiled files 
-* Precompiled bundle of shared SDL2 libs for arm64-v8a, armeabi-v7a, x86, x86_64:
-    * SDL2 2.0.8 - cause it needs API Level 19 (2.0.9 wants >=26)
-    * SDL2_image 2.0.4
-    * SDL2_mixer 2.0.4
-    * SDL2_ttf 2.0.15
-    * Instruction for creating bundle: https://wiki.libsdl.org/Android (section 4.1). Dont forget add SDL2Droid-CS-Native/wrapper/* to SDL2/build/org.libsdl/app/jni/src/* and fix path in Android.mk  
-* Precompiled SDL2Droid-CS-Java.jar (src from SDL2 2.0.8)
+* Precompiled bundle of shared SDL2 libs for `arm64-v8a`, `armeabi-v7a`, `x86`, `x86_64`:
+    * `SDL2` 2.0.8 - cause it needs API Level 19 (2.0.9 wants >= 26)
+    * `SDL2_image` 2.0.4
+    * `SDL2_mixer` 2.0.4
+    * `SDL2_ttf` 2.0.15
+    * Instruction for creating bundle: https://wiki.libsdl.org/Android (section 4.1). Dont forget add `SDL2Droid-CS-Native/wrapper/*` to `SDL2/build/org.libsdl/app/jni/src/*` and fix path in Android.mk  
+* Precompiled `SDL2Droid-CS-Java.jar` (src from SDL2 2.0.8)
 * Api Level 19
 * Simple test code for SDL2_* libs.
 
