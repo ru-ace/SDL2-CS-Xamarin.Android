@@ -1,5 +1,4 @@
 # SDL2-CS-Xamarin.Android
-------
 
 ## Difference from [SDL2Droid-CS](https://github.com/0x0ade/SDL2Droid-CS)
 
@@ -26,11 +25,9 @@ git clone --recursive https://github.com/ru-ace/SDL2-CS-Xamarin.Android
 * Original repo. Really great work! - https://github.com/0x0ade/SDL2Droid-CS 
 * Examples for [SDL2-CS](https://github.com/flibitijibibo/SDL2-CS/) - https://github.com/expert4pro/SharpSdl2Examples   
 
-
-
-# Original readme of SDL2Droid-CS
 ------
 
+# Original readme of SDL2Droid-CS
 ### An opera in three parts: SDL2 + SDL2-CS + Xamarin.Android
 #### zlib-licensed
 #### clone recursively
