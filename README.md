@@ -1,6 +1,6 @@
 # Difference from origin repo 
 
-* Updated to SDL2 2.0.8 and Android API Level 19
+* Switch to SDL2 2.0.8 and Android API Level 19
 * Precompiled bundle of shared SDL2 libs for `arm64-v8a`, `armeabi-v7a`, `x86`, `x86_64` from my submodule [SDL2-CS-libs-bundle](https://github.com/ru-ace/SDL2-CS-libs-bundle):
     * `SDL2` 2.0.8 - cause it needs API Level 19 (2.0.9 wants >= 26)
     * `SDL2_image` 2.0.4
@@ -8,7 +8,7 @@
     * `SDL2_ttf` 2.0.15
 * Precompiled `SDL2Droid-CS-Java.jar` (src from SDL2 2.0.8)
 * Simple test code for SDL2_* libs.
-* Removed `dep/SDL` submodule and broken `SDL2Droid-CS-Native`: instructions for manual build of libs bundle could be found at [SDL2-CS-libs-bundle](https://github.com/ru-ace/SDL2-CS-libs-bundle)
+* Removed `dep/SDL` submodule. Broke `SDL2Droid-CS-Native`: instructions for manual build of libs bundle could be found at [SDL2-CS-libs-bundle](https://github.com/ru-ace/SDL2-CS-libs-bundle)
 
 Please keep in mind that this repo contains *proof of concept* with very dirty code and **without any support**. 
 I used it to understand: in future i will be able to port my project with SDL2_* libs to android.
