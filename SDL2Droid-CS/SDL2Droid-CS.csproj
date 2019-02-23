@@ -78,99 +78,99 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidNativeLibrary Include="libs\armeabi-v7a\libSDL2.so">
+    <AndroidNativeLibrary Include="libs\android\armeabi-v7a\libSDL2.so">
       <Abi>armeabi-v7a</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\armeabi-v7a\libSDL2_image.so">
+    <AndroidNativeLibrary Include="libs\android\armeabi-v7a\libSDL2_image.so">
       <Abi>armeabi-v7a</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\armeabi-v7a\libSDL2_mixer.so">
+    <AndroidNativeLibrary Include="libs\android\armeabi-v7a\libSDL2_mixer.so">
       <Abi>armeabi-v7a</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\armeabi-v7a\libSDL2_ttf.so">
+    <AndroidNativeLibrary Include="libs\android\armeabi-v7a\libSDL2_ttf.so">
       <Abi>armeabi-v7a</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\armeabi-v7a\libmain.so">
+    <AndroidNativeLibrary Include="libs\android\armeabi-v7a\libmain.so">
       <Abi>armeabi-v7a</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\armeabi-v7a\libmpg123.so">
+    <AndroidNativeLibrary Include="libs\android\armeabi-v7a\libmpg123.so">
       <Abi>armeabi-v7a</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\arm64-v8a\libSDL2.so">
+    <AndroidNativeLibrary Include="libs\android\arm64-v8a\libSDL2.so">
       <Abi>arm64-v8a</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\arm64-v8a\libSDL2_image.so">
+    <AndroidNativeLibrary Include="libs\android\arm64-v8a\libSDL2_image.so">
       <Abi>arm64-v8a</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\arm64-v8a\libSDL2_mixer.so">
+    <AndroidNativeLibrary Include="libs\android\arm64-v8a\libSDL2_mixer.so">
       <Abi>arm64-v8a</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\arm64-v8a\libSDL2_ttf.so">
+    <AndroidNativeLibrary Include="libs\android\arm64-v8a\libSDL2_ttf.so">
       <Abi>arm64-v8a</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\arm64-v8a\libmain.so">
+    <AndroidNativeLibrary Include="libs\android\arm64-v8a\libmain.so">
       <Abi>arm64-v8a</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\arm64-v8a\libmpg123.so">
+    <AndroidNativeLibrary Include="libs\android\arm64-v8a\libmpg123.so">
       <Abi>arm64-v8a</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\x86_64\libSDL2.so">
+    <AndroidNativeLibrary Include="libs\android\x86_64\libSDL2.so">
       <Abi>x86_64</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\x86_64\libSDL2_image.so">
+    <AndroidNativeLibrary Include="libs\android\x86_64\libSDL2_image.so">
       <Abi>x86_64</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\x86_64\libSDL2_mixer.so">
+    <AndroidNativeLibrary Include="libs\android\x86_64\libSDL2_mixer.so">
       <Abi>x86_64</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\x86_64\libSDL2_ttf.so">
+    <AndroidNativeLibrary Include="libs\android\x86_64\libSDL2_ttf.so">
       <Abi>x86_64</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\x86_64\libmain.so">
+    <AndroidNativeLibrary Include="libs\android\x86_64\libmain.so">
       <Abi>x86_64</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\x86_64\libmpg123.so">
+    <AndroidNativeLibrary Include="libs\android\x86_64\libmpg123.so">
       <Abi>x86_64</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\x86\libSDL2.so">
+    <AndroidNativeLibrary Include="libs\android\x86\libSDL2.so">
       <Abi>x86</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\x86\libSDL2_image.so">
+    <AndroidNativeLibrary Include="libs\android\x86\libSDL2_image.so">
       <Abi>x86</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\x86\libSDL2_mixer.so">
+    <AndroidNativeLibrary Include="libs\android\x86\libSDL2_mixer.so">
       <Abi>x86</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\x86\libSDL2_ttf.so">
+    <AndroidNativeLibrary Include="libs\android\x86\libSDL2_ttf.so">
       <Abi>x86</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\x86\libmain.so">
+    <AndroidNativeLibrary Include="libs\android\x86\libmain.so">
       <Abi>x86</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>
-    <AndroidNativeLibrary Include="libs\x86\libmpg123.so">
+    <AndroidNativeLibrary Include="libs\android\x86\libmpg123.so">
       <Abi>x86</Abi>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidNativeLibrary>

@@ -1,23 +1,27 @@
 # Difference from origin repo 
 
-* Updated to SDL2 2.0.8 and contains all needed precompiled files 
-* Precompiled bundle of shared SDL2 libs for `arm64-v8a`, `armeabi-v7a`, `x86`, `x86_64`:
+* Updated to SDL2 2.0.8 and Android API Level 19
+* Precompiled bundle of shared SDL2 libs for `arm64-v8a`, `armeabi-v7a`, `x86`, `x86_64` from my submodule [SDL2-CS-libs-bundle](https://github.com/ru-ace/SDL2-CS-libs-bundle):
     * `SDL2` 2.0.8 - cause it needs API Level 19 (2.0.9 wants >= 26)
     * `SDL2_image` 2.0.4
     * `SDL2_mixer` 2.0.4
     * `SDL2_ttf` 2.0.15
-    * Instruction for creating bundle: https://wiki.libsdl.org/Android (section 4.1). Dont forget add `SDL2Droid-CS-Native/wrapper/*` to `SDL2/build/org.libsdl/app/jni/src/*` and fix path in Android.mk  
 * Precompiled `SDL2Droid-CS-Java.jar` (src from SDL2 2.0.8)
-* Api Level 19
 * Simple test code for SDL2_* libs.
+* Removed `dep/SDL` submodule and broken `SDL2Droid-CS-Native`: instructions for manual build of libs bundle could be found at [SDL2-CS-libs-bundle](https://github.com/ru-ace/SDL2-CS-libs-bundle)
 
 Please keep in mind that this repo contains *proof of concept* with very dirty code and **without any support**. 
 I used it to understand: in future i will be able to port my project with SDL2_* libs to android.
 
+If you want test this by yourself, please dont forget about submodules:
+```
+git clone --recursive https://github.com/ru-ace/SDL2Droid-CS
+```
+
 ## Credits
 
 * Original repo. Really great work! - https://github.com/0x0ade/SDL2Droid-CS 
-* Test code examples - https://github.com/expert4pro/SharpSdl2Examples   
+* Examples for [SDL2-CS](https://github.com/flibitijibibo/SDL2-CS/) - https://github.com/expert4pro/SharpSdl2Examples   
 
 # SDL2Droid-CS
 ### An opera in three parts: SDL2 + SDL2-CS + Xamarin.Android
@@ -37,7 +41,7 @@ I used it to understand: in future i will be able to port my project with SDL2_*
 
 *Why:* Xamarin for Visual Studio has got some problems with compiling native libraries on its own.
 
-*Compilation:* Run `buildnative.sh` (cygwin-compatible) from inside `/SDL2Droid-CS-Native/`. That's it.
+*Compilation:*Run `buildnative.sh` (cygwin-compatible) from inside `/SDL2Droid-CS-Native/`. That's it.
 
 #### /SDL2Droid-CS-Java/
 

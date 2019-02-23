@@ -1,3 +1,6 @@
 [submodule "deps/SDL2-CS"]
 	path = deps/SDL2-CS
 	url = https://github.com/flibitijibibo/SDL2-CS.git
+[submodule "SDL2Droid-CS/libs"]
+	path = SDL2Droid-CS/libs
+	url = https://github.com/ru-ace/SDL2-CS-libs-bundle
