@@ -1,4 +1,7 @@
-# Difference from origin repo 
+# SDL2-CS-Xamarin.Android
+------
+
+## Difference from [SDL2Droid-CS](https://github.com/0x0ade/SDL2Droid-CS)
 
 * Switch to SDL2 2.0.8 and Android API Level 19
 * Precompiled bundle of shared SDL2 libs for `arm64-v8a`, `armeabi-v7a`, `x86`, `x86_64` from my submodule [SDL2-CS-libs-bundle](https://github.com/ru-ace/SDL2-CS-libs-bundle):
@@ -15,7 +18,7 @@ I used it to understand: in future i will be able to port my project with SDL2_*
 
 If you want test this by yourself, please dont forget about submodules:
 ```
-git clone --recursive https://github.com/ru-ace/SDL2Droid-CS
+git clone --recursive https://github.com/ru-ace/SDL2-CS-Xamarin.Android
 ```
 
 ## Credits
@@ -23,7 +26,11 @@ git clone --recursive https://github.com/ru-ace/SDL2Droid-CS
 * Original repo. Really great work! - https://github.com/0x0ade/SDL2Droid-CS 
 * Examples for [SDL2-CS](https://github.com/flibitijibibo/SDL2-CS/) - https://github.com/expert4pro/SharpSdl2Examples   
 
-# SDL2Droid-CS
+
+
+# Original readme of SDL2Droid-CS
+------
+
 ### An opera in three parts: SDL2 + SDL2-CS + Xamarin.Android
 #### zlib-licensed
 #### clone recursively
